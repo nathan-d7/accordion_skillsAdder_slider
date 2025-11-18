@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    padding: 50px;
+}
+
+ul {
+    list-style: none;
+}
+
+/*Аккордеон*/
+
+.accordion__list {
+    max-width: 1260px;
+}
+
+.accordion__item {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    border-radius: 50px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+    user-select: none;
+}
+
+.accordion__item:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.accordion__item-num {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #0050B9;
+    margin-right: 60px;
+}
+
+.accordion__content {
+    flex-basis: 80%;
+}
+
+.accordion__title {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+    color: #010101;
+    cursor: pointer;
+}
+
+.accrodion__text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    display: none;
+}
+
+.accordion__btn {
+    display: inline-block;
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+    font-weight: 200;
+    color: #363636;
+    text-align: center;
+    line-height: 50px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.accordion__item.active {
+    background-image: linear-gradient(to right, #1c8adb, #0050b9);
+    align-items: start;
+}
+
+.accordion__item.active .accrodion__text {
+    display: block;
+}
+
+.accordion__item.active :where(span, .accordion__content > *) {
+    color: #fff;
+}
+
+.accordion__item.active .accordion__title {
+    margin-bottom: 18px;
+}
+
+.accordion__item.active .accordion__btn {
+    transform: rotate(45deg);
+}
+
+/*Добавление навыков*/
+
+.skills-box {
+    margin-top: 50px;
+}
+
+.skills__added {
+    color: rgba(90, 93, 98, 1);
+    margin-bottom: 14px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.skills__input-container {
+    margin-bottom: 24px;
+}
+
+.skills__input {
+    font-size: 16px;
+    font-weight: 400;
+    padding-block: 12px;
+    width: 540px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-right: 18px;
+}
+
+.skills__input:focus {
+    outline: none;
+}
+
+.skills__input-btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(1, 1, 1, 1);
+    padding: 12px 24px;
+    border: 2px solid rgba(202, 196, 208, 1);
+    border-radius: 100px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all .5s;
+}
+
+.skills__input-btn:hover {
+    background-color: rgba(0, 80, 185, 1);
+    color: #fff;
+    border: 2px solid rgba(0, 80, 185, 1);
+}
+
+.skills-box {
+    max-width: 720px;
+}
+
+
+.skills__list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.skills__item {
+    padding: 10px 12px 10px 24px;
+    background-color: rgba(0, 80, 185, 1);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.skills__item-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(242, 243, 245, 1);
+    margin-right: 12px;
+    user-select: none;
+}
+
+.skills__item-del {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    padding: 2px;
+    background-color: #fff;
+    font-size: 20px;
+    background-color: #ccc;
+    color: rgba(0, 80, 185, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/*Слайдер*/
+
+.slider {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(242, 243, 245, 1);
+    position: relative;
+}
+
+.slider__inner {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: 120px;
+}
+
+.slider::before {
+    content: "ПРОГРАММИСТ ДИЗАЙНЕР ПСИХОЛОГ ИЛЛЮСТРАТОР СОНГРАЙТЕР SMM МАРКЕТОЛОГ КОНТЕНТ-МЕНЕДЖЕР КОПИРАЙТЕР БИЗНЕСМЕН АНАЛИТИК ИНФЛЮЕНСЕР БЛОГЕР СТЕНДАПЕР ИНВЕСТОР ПОДКАСТЕР РЕДАКТОР";
+    display: inline-block;
+    max-width: 1260px;
+    height: 80%;
+    word-wrap: normal;
+    position: absolute;
+    left: 8%;
+    color: rgba(168, 168, 168, 0.3);
+    font-weight: 900;
+    font-size: 66px;
+}
+
+.slider__container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    transform-origin: 100% 0;
+    transform: rotateZ(-10deg) translateY(-33%);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+}
+
+.slider__item {
+    min-width: 100%;
+    background: #ffffff;
+    padding: 50px 60px;
+    border-radius: 50px;
+}
+
+.slider__item:not(:first-child) {
+    margin-left: 30px;
+}
+
+.slider__btn {
+    border: none;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    margin-right: 26px;
+    position: absolute;
+    background-color: transparent;
+    z-index: 2;
+    top: 105%;
+    left: -10%;
+    transform: translate(270%, -220%) rotate(-10deg);
+}
+
+.slider__btn:before {
+    content: "<";
+    display: block;
+    font-size: 52px;
+    font-weight: 800;
+    transform: translateY(-8px);
+    font-family: monospace;
+    color: rgba(54, 54, 54, 1);
+    cursor: pointer;
+
+}
+
+.slider__item-name {
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(0, 80, 185, 1);
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.slider__item-text {
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 40px;
+    text-transform: capitalize;
+}
+
+
+
+
+
+
