@@ -1,4 +1,4 @@
-console.log('Практическое занятие по элементам');
+console.log('Аккордеон, добавление навыков, слайдер');
 
 /*Аккордеон*/
 
@@ -160,7 +160,6 @@ let runSlider = function(slider) {
     let firstItem = items[0];
 
     let firstItemLength = firstItem.offsetWidth;
-    console.log(items.length);
     let index = 0;
 
     btnNext.addEventListener('click', () => {
