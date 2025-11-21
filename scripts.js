@@ -153,32 +153,81 @@ skillsFunc('skills');
 
 /*Слайдер*/
 
+let paginationMove = function(elem, paginationArr, slidesList, slideLength, gap) {
+
+    let pageIndex = paginationArr.indexOf(elem);
+
+    slidesList.scrollLeft = (slideLength + gap) * pageIndex;
+
+    paginationArr.forEach(p => p.style.backgroundColor = '');
+    paginationArr[pageIndex].style.backgroundColor = 'rgba(0, 80, 185, 1)';
+
+    return (paginationArr.length - 1) - pageIndex;
+}
+
+
 let runSlider = function(slider) {
     let list = slider.querySelector('.slider__container');
     let items = list.querySelectorAll('.slider__item');
     let btnNext = slider.querySelector('.slider__btn');
     let firstItem = items[0];
 
+    let listLength = items.length;
+    let paginationBox = slider.querySelector('.slider__pagination-box');
+    let paginationItem;
+
+    for(let item = 0; item < listLength; item++) {
+        paginationItem = document.createElement('span');
+        paginationItem.className = 'slider__pagination-item';
+        paginationBox.append(paginationItem);
+    }
+
+    let paginationItemsList = [...paginationBox.children];
+    let lastPagItem = paginationBox.lastElementChild;
+    lastPagItem.style.backgroundColor = 'rgba(0, 80, 185, 1)';
+
     let firstItemLength = firstItem.offsetWidth;
     let index = 0;
+    let gap = 30;
+
+    paginationItemsList.forEach(function(page) {
+        page.addEventListener('click', function(event) {
+            let spanElem = event.target;
+
+            index = paginationMove(spanElem, paginationItemsList, list, firstItemLength, gap);
+
+        });
+    });
 
     btnNext.addEventListener('click', () => {
 
-        list.scrollLeft += firstItemLength + 30;
+        list.scrollLeft += firstItemLength + gap;
         index++;
-    
+
+        let pagLastIndex = paginationItemsList.length - 1;
+
+        if((pagLastIndex - index) >= 0) {
+            paginationItemsList.forEach(p => p.style.backgroundColor = '');
+            paginationItemsList[pagLastIndex - index].style.backgroundColor = 'rgba(0, 80, 185, 1)';
+        } else {
+            paginationItemsList.forEach(p => p.style.backgroundColor = '');
+            paginationItemsList[pagLastIndex].style.backgroundColor = 'rgba(0, 80, 185, 1)';
+        }
+
         if(index >= items.length) {
             list.scrollLeft = 0;
             index = 0;
+
+            paginationItemsList.forEach(p => p.style.backgroundColor = '');
+            paginationItemsList[pagLastIndex].style.backgroundColor = 'rgba(0, 80, 185, 1)';
         }
-        
     });
 
 };
-
 
 let sliders = document.querySelectorAll('.slider');
 
 sliders.forEach(function(slider) {
     runSlider(slider);
 });
+

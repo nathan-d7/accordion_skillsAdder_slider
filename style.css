@@ -215,7 +215,7 @@ ul {
     content: "ПРОГРАММИСТ ДИЗАЙНЕР ПСИХОЛОГ ИЛЛЮСТРАТОР СОНГРАЙТЕР SMM МАРКЕТОЛОГ КОНТЕНТ-МЕНЕДЖЕР КОПИРАЙТЕР БИЗНЕСМЕН АНАЛИТИК ИНФЛЮЕНСЕР БЛОГЕР СТЕНДАПЕР ИНВЕСТОР ПОДКАСТЕР РЕДАКТОР";
     display: inline-block;
     max-width: 1260px;
-    height: 80%;
+    height: 90%;
     word-wrap: normal;
     position: absolute;
     left: 8%;
@@ -290,6 +290,24 @@ ul {
     text-transform: capitalize;
 }
 
+
+.slider__pagination-box {
+    /* border: 2px solid black; */
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) rotateZ(-11deg);
+    display: flex;
+    gap: 10px;
+}
+
+.slider__pagination-item {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
 
 
 
